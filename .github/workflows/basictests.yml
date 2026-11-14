@@ -1,0 +1,23 @@
+
+name: basictests.yaml
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  lab9-basic-tests:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Test 1
+        run: python3 validate-data.py "Alice Brennan" "0871234567"
+
+      - name: Test 2
+        run: python3 validate-data.py "Alice Brennan" "08712345678"
+
+      - name: Test 3
+        run: python3 validate-data.py "Alice Brennan ABC" "0871234567"
